@@ -6,7 +6,7 @@ public class TestRevert {
 
     public static Integer testNumber() {
         int i = 5;
-
-        return i;
+        int b = 7;
+        return i + b;
     }
 }
