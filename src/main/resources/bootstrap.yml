@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILE:local}
+---
+spring:
+  config:
+    import: classpath:local/my-test-local.yml
+    activate:
+      on-profile: local
+age2: ${app.age}
+zzz3: 4100000
+---
+spring:
+  config:
+    activate:
+      on-profile: develop
+age: 55
+zzz3: 1100000

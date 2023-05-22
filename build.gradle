@@ -1,0 +1,81 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.8'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+println "<--- start build.gradle"
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+ext {
+    springCloudVersion = '2021.0.4'
+    mapStructVersion = '1.4.2.Final'
+    lombokVersion = "1.18.22"
+    lombokMapstructBindingVersion = '0.2.0'
+}
+
+configurations {
+    providedRuntime
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    //lombok && mapstruct
+    implementation "org.mapstruct:mapstruct:${mapStructVersion}", "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}", "org.projectlombok:lombok:${lombokVersion}", "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
+    implementation('org.springframework.cloud:spring-cloud-starter-bootstrap')
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+task first {
+    doFirst {
+        println '1 first doFirst'
+    }
+    doLast {
+        println '2 first doLast'
+    }
+}
+
+task second {
+    dependsOn('first')
+    doFirst {
+        println '3 second doFirst'
+    }
+    doLast {
+        println '4 second doLast'
+    }
+}
+
+task third {
+    dependsOn('second')
+    doFirst {
+        println '5 second doFirst'
+    }
+    doLast {
+        println '6 second doLast'
+    }
+}
+
+bootRun {
+    println 'start bootRun'
+    jvmArgs = ['-Xmx512m']
+    environment SPRING_PROFILES_ACTIVE: environment.SPRING_PROFILES_ACTIVE ?: "local"
+}
