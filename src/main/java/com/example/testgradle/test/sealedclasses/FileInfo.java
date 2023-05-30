@@ -14,5 +14,6 @@ public class FileInfo {
     private String name;
     private String originalFileName;
     private Long size;
+
     private byte[] bytes;
 }
