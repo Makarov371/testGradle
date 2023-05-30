@@ -21,16 +21,6 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class MainRunner implements CommandLineRunner {
 
-    private final ObjectMapper objectMapper;
-
-    private final CatMapper catMapper;
-//    @Value("${app.name}")
-    public String name;
-
-    public final TestYml testYml;
-
-    @Value("${tt}")
-    public String tt;
 
     @Override
     public void run(String... args) throws Exception {
