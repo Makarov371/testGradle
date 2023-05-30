@@ -27,6 +27,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
     //lombok && mapstruct
     implementation "org.mapstruct:mapstruct:${mapStructVersion}", "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}", "org.projectlombok:lombok:${lombokVersion}", "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"

@@ -1,14 +1,27 @@
 spring:
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
   profiles:
     active: ${SPRING_PROFILE:local}
 ---
 spring:
   config:
-    import: classpath:local/my-test-local.yml
+    import: "classpath:local/my-test-local.yml, classpath:local/my-local-env.yml"
     activate:
       on-profile: local
 age2: ${app.age}
 zzz3: 4100000
+tt: мое имя \n ZhangSan
+config:
+  arr:
+    - string1
+    - string2
+    - string3
+    - string4
+    - string5
+    - string6
+
 ---
 spring:
   config:
