@@ -1,5 +1,6 @@
 package com.example.testgradle.web;
 
+import com.example.testgradle.dto.TestZone;
 import com.example.testgradle.test.sealedclasses.FileInfo;
 import com.example.testgradle.test.sealedclasses.MyMulti;
 import com.example.testgradle.test.sealedclasses.TestObjectMapper;
@@ -12,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,6 +31,15 @@ import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 public class TestController {
 
     private final ObjectMapper objectMapper;
+
+    @PostMapping("/success")
+    public void testSuccess() {}
+
+    @PostMapping("/testZone")
+    public TestZone testZoneDateTime(@RequestBody TestZone testZone) {
+        System.out.println(testZone);
+        return testZone;
+    }
 
     @PostMapping("/test-multi")
     public FileInfo getFileInfo(@RequestParam("file")MultipartFile multipartFile) throws IOException {

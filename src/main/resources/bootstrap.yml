@@ -1,9 +1,21 @@
+
 spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
   profiles:
     active: ${SPRING_PROFILE:local}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: admin
+    password: root
+    driver-class-name: org.postgresql.Driver
+server:
+  port: 8081
 ---
 spring:
   config:
