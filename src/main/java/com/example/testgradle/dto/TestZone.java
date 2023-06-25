@@ -18,4 +18,5 @@ public class TestZone {
     @JsonDeserialize(using = CustomZoneDateTimeDes.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssxxx")
     private ZonedDateTime date;
+
 }
