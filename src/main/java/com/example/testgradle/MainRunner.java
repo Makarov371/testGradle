@@ -2,6 +2,7 @@ package com.example.testgradle;
 
 import com.example.testgradle.dto.Animal;
 import com.example.testgradle.dto.Tiger;
+import com.example.testgradle.test.TestAbstr;
 import com.example.testgradle.test.findservicelogic.FindService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -21,14 +22,10 @@ public class MainRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
+        System.out.println("test");
     }
 
-    private FindService getService(Integer number) {
-        if (number == 1) {
-            return findServiceImpl1;
-        } else {
-            return findServiceImpl2;
-        }
+    private void buildTestAbstr(TestAbstr testAbstr) {
+
     }
 }
