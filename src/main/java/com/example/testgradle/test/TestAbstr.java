@@ -1,6 +1,5 @@
-package com.example.testgradle.dto;
+package com.example.testgradle.test;
 
-import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,13 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cat {
-
-    private Integer age;
+public class TestAbstr {
 
     private String name;
-
-
-    private String color;
-
 }
