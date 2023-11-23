@@ -28,4 +28,12 @@ public class MainRunner implements CommandLineRunner {
     private void buildTestAbstr(TestAbstr testAbstr) {
 
     }
+
+    private FindService getService(Integer number) {
+        if (number == 1) {
+            return findServiceImpl1;
+        } else {
+            return findServiceImpl2;
+        }
+    }
 }
