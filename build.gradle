@@ -7,7 +7,7 @@ plugins {
 println "<--- start build.gradle"
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 sourceCompatibility = '17'
 
 ext {
